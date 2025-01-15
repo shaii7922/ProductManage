@@ -1,0 +1,41 @@
+.listContainer {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Take up full width of the container */
+    max-width: 500px; /* Maximum width for product list */
+    margin: 0 auto; /* Center the product list within its container */
+  }
+  
+  .productItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .productItem:last-child {
+    border-bottom: none;
+  }
+  
+  .productDetails {
+    font-size: 16px;
+    color: #495057;
+  }
+  
+  .deleteButton {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .deleteButton:hover {
+    background-color: #bd2130;
+  }
+  
