@@ -6,7 +6,7 @@ import AddProductForm from './components/AddProductForm';
 const App = () => {
   const [products, setProducts] = useState([]); // Initialize as an empty array
 
-  // Fetch products from the API
+  // Fetch products from the backend API
   const fetchProducts = async () => {
     try {
       const response = await axios.get('http://localhost:3000/api/products');
@@ -14,11 +14,11 @@ const App = () => {
         setProducts(response.data.newOne); // Update state with the array
       } else {
         console.error('API did not return products as an array:', response.data);
-        setProducts([]); // Fallback to an empty array
+        setProducts([]); 
       }
     } catch (error) {
       console.error('Error fetching products:', error);
-      setProducts([]); // Handle errors gracefully
+      setProducts([]); // Handle errors 
     }
   };
 
