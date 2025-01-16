@@ -9,7 +9,11 @@ exports.newProduct = asyncHandler(async (req, res) => {
   console.log(`Here are name and price of product for console  ${name},${price}`);
   
   if (!name || !price) {
-    return res.status(400).json({ message: "Name and Price are required" });
+    const errors = {};
+    if (!name) errors.name = "Name is required.";
+    if (!price) errors.price = "Price is required.";
+
+    return res.status(400).json({ success: false, errors });
   }
 
   // Create a new product

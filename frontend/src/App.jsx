@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductList from './components/ProductList';
 import AddProductForm from './components/AddProductForm';
@@ -37,12 +37,17 @@ const App = () => {
     try {
       const response = await axios.post('http://localhost:3000/api/products', newProduct);
       if (response.data.success) {
-        setProducts([...products, response.data.newOne]); // Append new product to state
+        setProducts([...products, response.data.newOne]); 
       }
     } catch (error) {
-      console.error('Error adding product:', error);
+      if (error.response && error.response.status === 400) {
+        throw error; 
+      } else {
+        console.error('Error adding product:', error);
+      }
     }
   };
+  
 
   useEffect(() => {
     fetchProducts(); // Load products on component mount
